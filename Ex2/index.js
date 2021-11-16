@@ -1,47 +1,26 @@
+let slides = ["num1.jpg", "num2.jpg", "num3.jpg", "num4.jpg", "num5.png"];
 function prev() {
   var slide = document.getElementById("img");
-  if (slide.name == "1") {
-    slide.src = "num5.png";
-    slide.name = "5";
+
+  if (slide.name != 0) {
+    slide.name = parseInt(slide.name) - 1;
+    slide.src = slides[slide.name];
   }
-  else if (slide.name == "2") {
-    slide.src = "num1.jpg";
-    slide.name = "1";
-  }
-  else if (slide.name == "3") {
-    slide.src = "num2.jpg";
-    slide.name = "2";
-  }
-  else if (slide.name == "4") {
-    slide.src = "num3.jpg";
-    slide.name = "3";
-  }
-  else if (slide.name == "5") {
-    slide.src = "num4.jpg";
-    slide.name = "4";
+  else {
+    slide.name = parseInt(slides.length) - 1;
+    slide.src = slides[slide.name];
   }
 }
 
 function next() {
   var slide = document.getElementById("img");
-  if (slide.name == "1") {
-    slide.src = "num2.jpg";
-    slide.name = "2";
+
+  if (slide.name != slides.length - 1) {
+    slide.name = parseInt(slide.name) + 1;
+    slide.src = slides[slide.name];
   }
-  else if (slide.name == "2") {
-    slide.src = "num3.jpg";
-    slide.name = "3";
-  }
-  else if (slide.name == "3") {
-    slide.src = "num4.jpg";
-    slide.name = "4";
-  }
-  else if (slide.name == "4") {
-    slide.src = "num5.png";
-    slide.name = "5";
-  }
-  else if (slide.name == "5") {
-    slide.src = "num1.jpg";
-    slide.name = "1";
+  else {
+    slide.name = "0";
+    slide.src = slides[slide.name];
   }
 }
